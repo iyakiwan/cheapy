@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct ListItemView: View {
+    @ObservedObject var viewModel: MainViewModel
+    private var isWeight: Bool
+    @State private var showAlertClear = false
     let listItems: [Item]
     
-    init(listItems: [Item]) {
+    init(listItems: [Item], viewModel: MainViewModel, isWeight: Bool) {
         self.listItems = listItems
+        self.viewModel = viewModel
+        self.isWeight = isWeight
     }
     
     var body: some View {
@@ -22,6 +27,7 @@ struct ListItemView: View {
                     .fontWeight(.bold)
                 Spacer()
                 Button {
+                    showAlertClear = true
                 } label: {
                     Label("", systemImage: "trash")
                         .labelStyle(IconOnlyLabelStyle())
@@ -30,6 +36,20 @@ struct ListItemView: View {
                         .padding(5)
                 }
                 .opacity(listItems.count > 0 ? 1.0 : 0.0)
+                .alert(isPresented: $showAlertClear) {
+                    Alert(
+                        title: Text("Clear Item"),
+                        message: Text("Are you want to delete all data?"),
+                        primaryButton: .default(
+                            Text("No")
+                        ),
+                        secondaryButton: .destructive(
+                            Text("Yes"),
+                            action: { viewModel.clearData(isWeight: self.isWeight)
+                            }
+                        )
+                    )
+                }
                 Button {
                 } label: {
                     Label("", systemImage: "plus")
@@ -43,9 +63,11 @@ struct ListItemView: View {
             if listItems.count > 0 {
                 ScrollView() {
                     ForEach(listItems) { item in
-                        ItemView(item: item)
-                            .background(Color("ColorCard"))
-                            .padding(.horizontal)
+                        ItemView(item: item,
+                                 viewModel: self.viewModel,
+                                 isWeight: self.isWeight)
+                        .background(Color("ColorCard"))
+                        .padding(.horizontal)
                     }
                     
                 }
@@ -91,6 +113,10 @@ struct ListItemView: View {
 
 struct ListItemView_Previews: PreviewProvider {
     static var previews: some View {
-        ListItemView(listItems: dummyWeightItems)
+        ListItemView(
+            listItems: dummyWeightItems,
+            viewModel: MainViewModel(),
+            isWeight: true
+        )
     }
 }

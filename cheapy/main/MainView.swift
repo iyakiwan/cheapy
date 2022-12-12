@@ -25,7 +25,8 @@ struct MainView: View {
             .pickerStyle(.segmented)
             .padding(.horizontal)
             
-            ListItemView(listItems: selectedFilterProduct == "By Weight" ? vm.listWeightItems : vm.listVolumeItems)
+            ListItemView(listItems: selectedFilterProduct == "By Weight" ? vm.listWeightItems : vm.listVolumeItems, viewModel: vm,
+                isWeight: selectedFilterProduct == "By Weight")
         }
         
     }

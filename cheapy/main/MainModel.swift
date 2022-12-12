@@ -26,14 +26,6 @@ let dummyWeightItems : [Item] = [
     .init(id: UUID(), brand: "Pepsodent 190 + 25", net: 215, realNet: 215 * 1000, unit: UnitItem.ml, money: 13000)
 ]
 
-let dummyResultWeightItem = Item(id: UUID(), brand: "Head & Shoulders", net: 70, realNet: 70 * 1000, unit: UnitItem.ml, money: 13900)
-let dummyResultVolumeItem = Item(id: UUID(), brand: "Pepsodent 190 + 15", net: 205, realNet: 205 * 1000, unit: UnitItem.g, money: 12000)
-
-enum FilterItem: String {
-    case weight = "By Weight"
-    case volume = "By Volume"
-}
-
 enum UnitItem: String {
     case g = "g"
     case kg = "kg"
