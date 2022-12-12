@@ -33,7 +33,6 @@ struct ItemView: View {
             }
             Spacer()
             Button {
-                print("delete \(isWeightItem)")
                 showAlertDelete = true
             } label: {
                 Label("", systemImage: "trash")

@@ -34,7 +34,6 @@ struct InputView: View {
         self.isWeight = isWeight
         self.viewModel = viewModel
         
-        print(selectedItem)
         self.uuid = selectedItem.id
         self._brand = State(initialValue: selectedItem.brand)
         self._net = State(initialValue: String(Int(selectedItem.net)))
@@ -44,7 +43,6 @@ struct InputView: View {
         } else {
             self._selectionVolume = State(initialValue: selectedItem.unit)
         }
-        print("\(brand) \(uuid)")
         
     }
     
