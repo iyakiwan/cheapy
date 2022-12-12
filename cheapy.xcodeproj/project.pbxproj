@@ -11,6 +11,12 @@
 		57EFE3062945F2E100C6D77D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EFE3052945F2E100C6D77D /* ContentView.swift */; };
 		57EFE3082945F2E200C6D77D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57EFE3072945F2E200C6D77D /* Assets.xcassets */; };
 		57EFE30B2945F2E200C6D77D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57EFE30A2945F2E200C6D77D /* Preview Assets.xcassets */; };
+		57EFE3142946377100C6D77D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EFE3132946377100C6D77D /* MainView.swift */; };
+		57EFE31629463E3B00C6D77D /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EFE31529463E3B00C6D77D /* MainViewModel.swift */; };
+		57EFE3182946A87E00C6D77D /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EFE3172946A87E00C6D77D /* MainModel.swift */; };
+		57EFE31A2946A9F800C6D77D /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EFE3192946A9F800C6D77D /* ItemView.swift */; };
+		57EFE31E2946AF7400C6D77D /* ListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EFE31D2946AF7400C6D77D /* ListItemView.swift */; };
+		57EFE3222946C5D000C6D77D /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EFE3212946C5D000C6D77D /* Formatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +25,12 @@
 		57EFE3052945F2E100C6D77D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		57EFE3072945F2E200C6D77D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57EFE30A2945F2E200C6D77D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		57EFE3132946377100C6D77D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		57EFE31529463E3B00C6D77D /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		57EFE3172946A87E00C6D77D /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
+		57EFE3192946A9F800C6D77D /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
+		57EFE31D2946AF7400C6D77D /* ListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemView.swift; sourceTree = "<group>"; };
+		57EFE3212946C5D000C6D77D /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +63,10 @@
 		57EFE3022945F2E100C6D77D /* cheapy */ = {
 			isa = PBXGroup;
 			children = (
+				57EFE31C2946AF2F00C6D77D /* list */,
+				57EFE3112946374100C6D77D /* item */,
+				57EFE3122946375800C6D77D /* main */,
+				57EFE3202946C59D00C6D77D /* utils */,
 				57EFE3032945F2E100C6D77D /* cheapyApp.swift */,
 				57EFE3052945F2E100C6D77D /* ContentView.swift */,
 				57EFE3072945F2E200C6D77D /* Assets.xcassets */,
@@ -65,6 +81,40 @@
 				57EFE30A2945F2E200C6D77D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		57EFE3112946374100C6D77D /* item */ = {
+			isa = PBXGroup;
+			children = (
+				57EFE3192946A9F800C6D77D /* ItemView.swift */,
+			);
+			path = item;
+			sourceTree = "<group>";
+		};
+		57EFE3122946375800C6D77D /* main */ = {
+			isa = PBXGroup;
+			children = (
+				57EFE3132946377100C6D77D /* MainView.swift */,
+				57EFE31529463E3B00C6D77D /* MainViewModel.swift */,
+				57EFE3172946A87E00C6D77D /* MainModel.swift */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		57EFE31C2946AF2F00C6D77D /* list */ = {
+			isa = PBXGroup;
+			children = (
+				57EFE31D2946AF7400C6D77D /* ListItemView.swift */,
+			);
+			path = list;
+			sourceTree = "<group>";
+		};
+		57EFE3202946C59D00C6D77D /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				57EFE3212946C5D000C6D77D /* Formatter.swift */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +188,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				57EFE3062945F2E100C6D77D /* ContentView.swift in Sources */,
+				57EFE31E2946AF7400C6D77D /* ListItemView.swift in Sources */,
+				57EFE31A2946A9F800C6D77D /* ItemView.swift in Sources */,
+				57EFE3142946377100C6D77D /* MainView.swift in Sources */,
 				57EFE3042945F2E100C6D77D /* cheapyApp.swift in Sources */,
+				57EFE3182946A87E00C6D77D /* MainModel.swift in Sources */,
+				57EFE3222946C5D000C6D77D /* Formatter.swift in Sources */,
+				57EFE31629463E3B00C6D77D /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +326,7 @@
 				DEVELOPMENT_TEAM = 298L6YQ8RM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -279,7 +336,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mufti.apple-academy-uc.cheapy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -299,6 +356,7 @@
 				DEVELOPMENT_TEAM = 298L6YQ8RM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -308,7 +366,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mufti.apple-academy-uc.cheapy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
