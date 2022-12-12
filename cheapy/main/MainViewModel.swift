@@ -10,6 +10,7 @@ import Foundation
 class MainViewModel: ObservableObject {
     @Published var listWeightItems: [Item] = dummyWeightItems
     @Published var listVolumeItems: [Item] = dummyVolumeItems
+    @Published var isShowSheetInput: Bool = false
     
     func clearData(isWeight: Bool) {
         if isWeight {
@@ -24,6 +25,14 @@ class MainViewModel: ObservableObject {
             listWeightItems = listWeightItems.filter{$0.id != selectedId}
         } else {
             listVolumeItems = listVolumeItems.filter{$0.id != selectedId}
+        }
+    }
+    
+    func addData(isWeight: Bool, item: Item) {
+        if isWeight {
+            listWeightItems.append(item)
+        } else {
+            listVolumeItems.append(item)
         }
     }
 }

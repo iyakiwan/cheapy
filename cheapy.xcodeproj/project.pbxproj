@@ -17,6 +17,7 @@
 		57EFE31A2946A9F800C6D77D /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EFE3192946A9F800C6D77D /* ItemView.swift */; };
 		57EFE31E2946AF7400C6D77D /* ListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EFE31D2946AF7400C6D77D /* ListItemView.swift */; };
 		57EFE3222946C5D000C6D77D /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EFE3212946C5D000C6D77D /* Formatter.swift */; };
+		57EFE32529471F2200C6D77D /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EFE32429471F2200C6D77D /* InputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		57EFE3192946A9F800C6D77D /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		57EFE31D2946AF7400C6D77D /* ListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemView.swift; sourceTree = "<group>"; };
 		57EFE3212946C5D000C6D77D /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		57EFE32429471F2200C6D77D /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 		57EFE3022945F2E100C6D77D /* cheapy */ = {
 			isa = PBXGroup;
 			children = (
+				57EFE32329471EEF00C6D77D /* input */,
 				57EFE31C2946AF2F00C6D77D /* list */,
 				57EFE3112946374100C6D77D /* item */,
 				57EFE3122946375800C6D77D /* main */,
@@ -115,6 +118,14 @@
 				57EFE3212946C5D000C6D77D /* Formatter.swift */,
 			);
 			path = utils;
+			sourceTree = "<group>";
+		};
+		57EFE32329471EEF00C6D77D /* input */ = {
+			isa = PBXGroup;
+			children = (
+				57EFE32429471F2200C6D77D /* InputView.swift */,
+			);
+			path = input;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +204,7 @@
 				57EFE3142946377100C6D77D /* MainView.swift in Sources */,
 				57EFE3042945F2E100C6D77D /* cheapyApp.swift in Sources */,
 				57EFE3182946A87E00C6D77D /* MainModel.swift in Sources */,
+				57EFE32529471F2200C6D77D /* InputView.swift in Sources */,
 				57EFE3222946C5D000C6D77D /* Formatter.swift in Sources */,
 				57EFE31629463E3B00C6D77D /* MainViewModel.swift in Sources */,
 			);

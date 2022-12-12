@@ -51,12 +51,16 @@ struct ListItemView: View {
                     )
                 }
                 Button {
+                    viewModel.isShowSheetInput = true
                 } label: {
                     Label("", systemImage: "plus")
                         .labelStyle(IconOnlyLabelStyle())
                         .font(.system(size: 20).bold())
                         .foregroundColor(.black)
                         .padding(.trailing, 15)
+                }
+                .sheet(isPresented: $viewModel.isShowSheetInput) {
+                    InputView(isUpdate: false, isWeight: self.isWeight, viewModel: viewModel).presentationDetents([.medium, .large])
                 }
             }
             .padding()
@@ -86,7 +90,7 @@ struct ListItemView: View {
                     Text("(\(formatNet(input: calculateWeightCheapest(listItems: self.listItems).net)) \(calculateWeightCheapest(listItems: self.listItems).unit.rawValue))")
                         .font(.title3)
                         .multilineTextAlignment(.center)
-                    Text("$ \(calculateWeightCheapest(listItems: self.listItems).money)")
+                    Text("\(formatPrice(input: Float(calculateWeightCheapest(listItems: self.listItems).money)))")
                         .font(.title2)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)

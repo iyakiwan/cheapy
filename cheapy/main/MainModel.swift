@@ -23,7 +23,7 @@ let dummyVolumeItems: [Item] = [
 
 let dummyWeightItems : [Item] = [
     .init(id: UUID(), brand: "Pepsodent 190 + 15", net: 205, realNet: 205 * 1000, unit: UnitItem.g, money: 12000),
-    .init(id: UUID(), brand: "Pepsodent 190 + 25", net: 215, realNet: 215 * 1000, unit: UnitItem.ml, money: 13000)
+    .init(id: UUID(), brand: "Pepsodent 190 + 25", net: 215, realNet: 215 * 1000, unit: UnitItem.g, money: 13000)
 ]
 
 enum UnitItem: String {

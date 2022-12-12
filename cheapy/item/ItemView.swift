@@ -26,7 +26,7 @@ struct ItemView: View {
                     .fontWeight(.bold)
                 Text("\(formatNet(input: item.net)) \(item.unit.rawValue)")
                     .font(.body)
-                Text("$ \(item.money)")
+                Text("\(formatPrice(input: Float(item.money)))")
                     .font(.headline)
                     .padding(.top, 5)
             }
