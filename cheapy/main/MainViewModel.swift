@@ -9,5 +9,5 @@ import Foundation
 
 class MainViewModel: ObservableObject {
     @Published var listWeightItems: [Item] = dummyWeightItems
-    @Published var listVolumeItems: [Item] = dummyVolumeItems
+    @Published var listVolumeItems: [Item] = []
 }

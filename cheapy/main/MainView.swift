@@ -16,17 +16,18 @@ struct MainView: View {
             Text("Find your cheapest on the same product")
                 .font(.largeTitle)
                 .fontWeight(.bold)
+                .padding(.horizontal)
             Picker("What is your filter item product?", selection: $selectedFilterProduct) {
                 ForEach(filterProducts, id: \.self) { filterProduct in
                     Text(filterProduct)
                 }
             }
             .pickerStyle(.segmented)
-            ListItemView(listItems: selectedFilterProduct == "By Weight" ? vm.listWeightItems : vm.listVolumeItems)
+            .padding(.horizontal)
             
-            Spacer()
+            ListItemView(listItems: selectedFilterProduct == "By Weight" ? vm.listWeightItems : vm.listVolumeItems)
         }
-        .padding()
+        
     }
 }
 

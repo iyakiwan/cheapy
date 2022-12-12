@@ -16,12 +16,12 @@ struct Item: Identifiable {
     let money: Int
 }
 
-let dummyWeightItems: [Item] = [
+let dummyVolumeItems: [Item] = [
     .init(id: UUID(), brand: "Head & Shoulders", net: 70, realNet: 70 * 1000, unit: UnitItem.ml, money: 13900),
     .init(id: UUID(), brand: "Head & Shoulders", net: 160, realNet: 160 * 1000, unit: UnitItem.ml, money: 33900)
 ]
 
-let dummyVolumeItems: [Item] = [
+let dummyWeightItems : [Item] = [
     .init(id: UUID(), brand: "Pepsodent 190 + 15", net: 205, realNet: 205 * 1000, unit: UnitItem.g, money: 12000),
     .init(id: UUID(), brand: "Pepsodent 190 + 25", net: 215, realNet: 215 * 1000, unit: UnitItem.ml, money: 13000)
 ]

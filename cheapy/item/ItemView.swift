@@ -24,19 +24,18 @@ struct ItemView: View {
             Spacer()
             Button {
             } label: {
-                Label("", systemImage: "pencil")
+                Label("", systemImage: "trash")
                     .labelStyle(IconOnlyLabelStyle())
-                    .font(.system(size: 25).bold())
+                    .font(.system(size: 20).bold())
                     .foregroundColor(.black)
                     .padding(5)
             }
             Button {
             } label: {
-                Label("", systemImage: "clear")
+                Label("", systemImage: "pencil")
                     .labelStyle(IconOnlyLabelStyle())
-                    .font(.system(size: 25).bold())
+                    .font(.system(size: 20).bold())
                     .foregroundColor(.black)
-                    .padding(5)
             }
         }
         .padding()
@@ -46,6 +45,6 @@ struct ItemView: View {
 struct ItemView_Previews: PreviewProvider {
     static var previews: some View {
         ItemView(item: dummyWeightItems[0])
-            .background(.yellow)
+            .background(Color("ColorCard"))
     }
 }

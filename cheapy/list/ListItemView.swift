@@ -36,7 +36,7 @@ struct ListItemView: View {
                         .labelStyle(IconOnlyLabelStyle())
                         .font(.system(size: 20).bold())
                         .foregroundColor(.black)
-                        .padding(5)
+                        .padding(.trailing, 15)
                 }
             }
             .padding()
@@ -44,27 +44,33 @@ struct ListItemView: View {
                 ScrollView() {
                     ForEach(listItems) { item in
                         ItemView(item: item)
-                            .background(.yellow)
+                            .background(Color("ColorCard"))
+                            .padding(.horizontal)
                     }
                     
                 }
                 Spacer()
                 
-                Divider().tint(.black)
                 VStack {
+                    Divider().tint(.black)
                     Text("The Cheapest Item is:")
                         .font(.body)
                         .multilineTextAlignment(.center)
                         .padding(.vertical, 5)
-                    Text("\(calculateWeightCheapest(listItems: self.listItems).brand) \n(\(formatNet(input: calculateWeightCheapest(listItems: self.listItems).net)) \(calculateWeightCheapest(listItems: self.listItems).unit.rawValue))")
+                    Text("\(calculateWeightCheapest(listItems: self.listItems).brand)")
                         .font(.title)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
-                    Text("$ \(calculateWeightCheapest(listItems: self.listItems).money)")
+                    Text("(\(formatNet(input: calculateWeightCheapest(listItems: self.listItems).net)) \(calculateWeightCheapest(listItems: self.listItems).unit.rawValue))")
                         .font(.title3)
+                        .multilineTextAlignment(.center)
+                    Text("$ \(calculateWeightCheapest(listItems: self.listItems).money)")
+                        .font(.title2)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
+                        .padding(.top, 5)
                 }
+                .background(.yellow)
             } else {
                 GeometryReader { geometry in
                     ScrollView{
@@ -85,7 +91,6 @@ struct ListItemView: View {
 
 struct ListItemView_Previews: PreviewProvider {
     static var previews: some View {
-        
         ListItemView(listItems: dummyWeightItems)
     }
 }
