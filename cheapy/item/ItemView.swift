@@ -12,6 +12,7 @@ struct ItemView: View {
     @ObservedObject var viewModel: MainViewModel
     private var isWeightItem: Bool
     @State private var showAlertDelete = false
+    @State private var isShowSheetInputUpdate = false
     
     init(item: Item, viewModel: MainViewModel, isWeight: Bool) {
         self.item = item
@@ -56,11 +57,15 @@ struct ItemView: View {
                 )
             }
             Button {
+                isShowSheetInputUpdate = true
             } label: {
                 Label("", systemImage: "pencil")
                     .labelStyle(IconOnlyLabelStyle())
                     .font(.system(size: 20).bold())
                     .foregroundColor(.black)
+            }
+            .sheet(isPresented: $isShowSheetInputUpdate) {
+                InputView(isUpdate: true, isWeight: self.isWeightItem, viewModel: viewModel, selectedItem: item).presentationDetents([.medium, .large])
             }
         }
         .padding()

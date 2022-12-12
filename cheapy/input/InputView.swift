@@ -13,7 +13,7 @@ struct InputView: View {
     @ObservedObject var viewModel: MainViewModel
     
     @Environment(\.dismiss) var dismiss
-    @State private var name: String = ""
+    @State private var brand: String = ""
     @State private var net: String = ""
     @State private var price: String = ""
     
@@ -21,13 +21,39 @@ struct InputView: View {
     @State private var selectionVolume: UnitItem = UnitItem.ml
     let unitWeight = [UnitItem.g, UnitItem.kg]
     let unitVolume = [UnitItem.ml, UnitItem.l]
+    private var uuid: UUID = UUID()
+    
+    init(isUpdate: Bool, isWeight: Bool, viewModel: MainViewModel) {
+        self.isUpdate = isUpdate
+        self.isWeight = isWeight
+        self.viewModel = viewModel
+    }
+    
+    init(isUpdate: Bool, isWeight: Bool, viewModel: MainViewModel, selectedItem: Item) {
+        self.isUpdate = isUpdate
+        self.isWeight = isWeight
+        self.viewModel = viewModel
+        
+        print(selectedItem)
+        self.uuid = selectedItem.id
+        self._brand = State(initialValue: selectedItem.brand)
+        self._net = State(initialValue: String(Int(selectedItem.net)))
+        self._price = State(initialValue: String(selectedItem.money))
+        if isWeight {
+            self._selectionWeight = State(initialValue: selectedItem.unit)
+        } else {
+            self._selectionVolume = State(initialValue: selectedItem.unit)
+        }
+        print("\(brand) \(uuid)")
+        
+    }
     
     var body: some View {
         NavigationView {
             VStack (alignment: .leading) {
                 Text("Brand")
                     .font(.headline)
-                TextField("ex: Head & Shoulders", text: $name)
+                TextField("ex: Head & Shoulders", text: $brand)
                     .frame(maxWidth: .infinity)
                     .disableAutocorrection(true)
                     .textFieldStyle(.roundedBorder)
@@ -77,11 +103,12 @@ struct InputView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(isUpdate ? "Update":"Add") {
                         if isUpdate {
-                            print("Update")
+                            let realNet = (Float(net) ?? 0.0) * formatUnit(input: isWeight ? selectionWeight : selectionVolume)
+                            let inputData: Item = .init(id: self.uuid, brand: brand, net: Float(net) ?? 0.0, realNet: realNet, unit: isWeight ? selectionWeight : selectionVolume, money: Int(price) ?? 0)
+                            viewModel.updateData(isWeight: isWeight, item: inputData)
                         } else {
                             let realNet = (Float(net) ?? 0.0) * formatUnit(input: isWeight ? selectionWeight : selectionVolume)
-                            let inputData: Item = .init(id: UUID(), brand: name, net: Float(net) ?? 0.0, realNet: realNet, unit: isWeight ? selectionWeight : selectionVolume, money: Int(price) ?? 0)
-                            print(inputData)
+                            let inputData: Item = .init(id: UUID(), brand: brand, net: Float(net) ?? 0.0, realNet: realNet, unit: isWeight ? selectionWeight : selectionVolume, money: Int(price) ?? 0)
                             viewModel.addData(isWeight: isWeight, item: inputData)
                             
                         }

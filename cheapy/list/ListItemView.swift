@@ -51,7 +51,7 @@ struct ListItemView: View {
                     )
                 }
                 Button {
-                    viewModel.isShowSheetInput = true
+                    viewModel.isShowSheetInputAdd = true
                 } label: {
                     Label("", systemImage: "plus")
                         .labelStyle(IconOnlyLabelStyle())
@@ -59,7 +59,7 @@ struct ListItemView: View {
                         .foregroundColor(.black)
                         .padding(.trailing, 15)
                 }
-                .sheet(isPresented: $viewModel.isShowSheetInput) {
+                .sheet(isPresented: $viewModel.isShowSheetInputAdd) {
                     InputView(isUpdate: false, isWeight: self.isWeight, viewModel: viewModel).presentationDetents([.medium, .large])
                 }
             }

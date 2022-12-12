@@ -8,9 +8,9 @@
 import Foundation
 
 class MainViewModel: ObservableObject {
-    @Published var listWeightItems: [Item] = dummyWeightItems
-    @Published var listVolumeItems: [Item] = dummyVolumeItems
-    @Published var isShowSheetInput: Bool = false
+    @Published var listWeightItems: [Item] = []
+    @Published var listVolumeItems: [Item] = []
+    @Published var isShowSheetInputAdd: Bool = false
     
     func clearData(isWeight: Bool) {
         if isWeight {
@@ -33,6 +33,14 @@ class MainViewModel: ObservableObject {
             listWeightItems.append(item)
         } else {
             listVolumeItems.append(item)
+        }
+    }
+    
+    func updateData(isWeight: Bool, item: Item) {
+        if isWeight {
+            listWeightItems = listWeightItems.map{ $0.id == item.id ? item : $0 }
+        } else {
+            listVolumeItems = listVolumeItems.map{ $0.id == item.id ? item : $0 }
         }
     }
 }
